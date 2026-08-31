@@ -1,4 +1,4 @@
-# 20 项 Reward 测试计划
+# 40 项 Reward 测试计划
 
 本计划在任何 GRPO 运行前转为可执行的参数化单元测试。测试只读取结构化
 trajectory telemetry 与 verifier 结果，不相信模型对“已调用成功”或“答案正确”
@@ -52,9 +52,40 @@ Vanilla 都是 `1.05`。
 | R19 | 两条均错误且基础 reward 分量相同，`c=[0,3]` | 两条 Efficient 都等于各自 Vanilla=`0.05`；错误项不因少调用获奖，也不因多调用被效率项扣分。 |
 | R20 | Prompt A 有两条正确 `c=[1,3]`；Prompt B 有两条正确 `c=[2,2]`；输入顺序随机打乱 | A 独立得到 Efficient=`[1.05,0.75]`，B 独立得到 `[1.05,1.05]`；还原 `(prompt_id, rollout_id)` 后结果与打乱前完全一致，证明 group isolation 与 permutation invariance。 |
 
+## 边界、Verifier 与日志一致性（R21–R30）
+
+| ID | 输入场景 | 预期断言 |
+|---|---|---|
+| R21 | 分数 `1/2` 对参考小数 `0.5`，零调用 | numeric verifier 判正确，Vanilla=`1.05`；Reward 不自行实现第二套答案语义。 |
+| R22 | 工具 observation 为正确数值，但 Final 给出另一个数 | verifier 判错，Vanilla=`0.05`；工具执行成功不替代最终正确。 |
+| R23 | 恰好两个 invalid calls，Final 可解析但错误 | invalid penalty=`0.40`，与三个 invalid 的封顶结果一致。 |
+| R24 | completion 标记 truncated，但截断前已有完整、可解析且正确的 Final | v1 没有隐藏 truncation 扣分，Vanilla=`1.05`；truncation 仍写 telemetry/质量报告。 |
+| R25 | 达到三次最大调用后退出且没有 Final | `correct=false`，missing-final=`0.20`；合法调用不产生正奖励。 |
+| R26 | malformed tool marker 后仍能独立解析出正确 Final | marker 计 invalid、format=`0`、answer=`1.00`，Vanilla=`0.80`。 |
+| R27 | `python_exec` 因文件 I/O 策略被拒，随后给出错误 Final | policy rejection 计一个 invalid；Vanilla=`-0.15`（`0.05-0.20`）。 |
+| R28 | `python_exec` 命中输出长度上限，但随后 Final 由 verifier 判正确 | output-limit 计一个 invalid；Vanilla=`0.85`，执行失败不抹掉真实 Final 正确性。 |
+| R29 | 浮点预测分别位于 numeric verifier 容差内与刚超出容差 | 仅前者得到 answer=`1.00`；其余 reward 分量保持完全一致。 |
+| R30 | MATH 等价表达式由 `math-verify` 判等与 parser 失败各一例 | 等价例 answer=`1.00`；parser 失败例 answer=`0`，不得由 Reward 猜测语义。 |
+
+## Lambda、性质与故障输入（R31–R40）
+
+| ID | 输入场景 | 预期断言 |
+|---|---|---|
+| R31 | 两条 clean 正确 `c=[1,3]`，`lambda=0.10` | Efficient=`[1.05,0.85]`。 |
+| R32 | 两条 clean 正确 `c=[1,3]`，`lambda=0.25` | Efficient=`[1.05,0.55]`。 |
+| R33 | 任意混合组，`lambda=0`（测试专用） | Efficient 逐条严格等于 Vanilla，验证实现只追加效率项。 |
+| R34 | 原组 clean 正确 `c=[2,3]`，再加入 clean 正确 `c=0` | 新 `C*=0`；原两条 penalty 相应增大，错误项（若有）不变，体现 group-relative 语义。 |
+| R35 | 两条错误 rollout 基础分量相同，分别 `c=0` 与 `c=100` | efficiency penalty 都为 0；错误项永不因成本得到 bonus 或 penalty。 |
+| R36 | clean 正确 `c=0` 与正确但含一次 timeout 的 `c=1` | `C*=0`；后者同时扣 invalid=`0.20` 和 efficiency=`0.15`，总分 `0.70`。 |
+| R37 | clean 正确 `c=1` 与含两次重复合法调用的 clean 正确 `c=3` | 第二条 efficiency penalty=`0.30`；重复调用全部计入实际成本。 |
+| R38 | 对含 answer/format/invalid/final/efficiency 的混合组从组件日志重算 | 每条 `total` 与组件代数和在浮点容差内完全一致，且记录正确的 `C*`。 |
+| R39 | telemetry 中调用数为负数、NaN 或非整数 | scorer 明确拒绝输入并返回结构化错误；不静默夹紧、不产生非有限 reward。 |
+| R40 | 空 rollout 组与缺失 `prompt_id` 的记录 | group scorer 明确拒绝；不会跨 prompt 借用 `C*`，错误含可定位 reason code。 |
+
 ## 执行前验收
 
-- 测试场景数必须恰好为 20：Vanilla 10 项、Efficient 10 项；
+- 测试场景数必须恰好为 40：基础 Vanilla 10 项、核心 Efficient 10 项、
+  边界/Verifier 10 项、Lambda/性质/故障输入 10 项；
 - 每项同时断言总 reward 和相关分量，不只比较最终浮点数；
 - 浮点断言使用小容差，并检查所有分量为有限数；
 - Efficient 与 Vanilla 共用同一个 `score_vanilla` 实现；Efficient 只追加单独记录的 `efficiency_penalty`；
