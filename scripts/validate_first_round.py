@@ -40,11 +40,10 @@ def main() -> int:
 
     manifest = json.loads((ROOT / "data" / "manifests" / "source_manifest.json").read_text(encoding="utf-8"))
     assert len(manifest["assets"]) == 10
-    assert all(item["revision"] and item["revision"] != "main" for item in manifest["assets"])
+    assert all(re.fullmatch(r"[0-9a-f]{40}", item["revision"]) for item in manifest["assets"])
     print("first-round audit artifacts: PASS (14 reports, 20 episodes, 40 reward tests, 10 pinned assets)")
     return 0
 
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

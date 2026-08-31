@@ -10,13 +10,13 @@
   "assets": [
     {"kind": "git", "id": "RUC-NLPIR/Tool-Star", "revision": "df08f67a89b27feda425306cfe892d65f6569f9a", "license": "MIT", "purpose": ["protocol_reference"]},
     {"kind": "model", "id": "Qwen/Qwen2.5-3B-Instruct", "revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1", "license": "Qwen Research", "purpose": ["base", "sft", "grpo", "evaluation"]},
-    {"kind": "model", "id": "dongguanting/Tool-Star-Qwen-3B", "revision": "2350a1d6ec62300d48e41f752babab730bad8aa92", "license": "MIT", "purpose": ["protocol_sanity", "teacher", "reference"]},
-    {"kind": "dataset", "id": "dongguanting/Tool-Star-SFT-54K", "revision": "f85b4fe0809aa30a3b360b6f61689e462f79e2ec1", "license": "MIT", "splits": ["train"], "purpose": ["protocol_sanity", "filtered_sft_reference"]},
-    {"kind": "dataset", "id": "dongguanting/Multi-Tool-RL-10K", "revision": "c9574c31986ddb590a322d8924925a8b9684fb6c5", "license": "MIT", "splits": ["train"], "purpose": ["format_reference"]},
-    {"kind": "dataset", "id": "openai/gsm8k", "revision": "740312add88f781978c0658806c59bbc2815b9866", "license": "MIT", "splits": ["train", "test"], "purpose": ["math_train", "final_eval"]},
-    {"kind": "dataset", "id": "EleutherAI/hendrycks_math", "revision": "21a5633873b6a1202296cce3e2df9d5550074f4a3", "license": "MIT-metadata", "splits": ["train"], "purpose": ["math_train"]},
-    {"kind": "dataset", "id": "HuggingFaceH4/MATH-500", "revision": "6e4ed1a2a79af7d8630aa6b768ec859cb5af4d3be", "license": "undeclared-on-card", "splits": ["test"], "purpose": ["final_eval"]},
-    {"kind": "dataset", "id": "hotpotqa/hotpot_qa", "revision": "1908d6afbbead072334abe29965f91bd2709910ab", "license": "CC-BY-SA-4.0", "config": "distractor", "splits": ["train", "validation"], "purpose": ["retrieval_train", "final_eval"]},
-    {"kind": "dataset", "id": "framolfese/2WikiMultihopQA", "revision": "fe713bfbd1afbca11a65246741a75890405d56a3a", "license": "Apache-2.0-upstream", "splits": ["train", "validation", "test"], "purpose": ["retrieval_train", "final_eval"]}
+    {"kind": "model", "id": "dongguanting/Tool-Star-Qwen-3B", "revision": "2350a1d6ec6230d48e41f752babab730bad8aa92", "license": "MIT", "purpose": ["protocol_sanity", "teacher", "reference"]},
+    {"kind": "dataset", "id": "dongguanting/Tool-Star-SFT-54K", "revision": "f85b4fe0809a30a3b360b6f61689e462f79e2ec1", "license": "MIT", "splits": ["train"], "purpose": ["protocol_sanity", "filtered_sft_reference"]},
+    {"kind": "dataset", "id": "dongguanting/Multi-Tool-RL-10K", "revision": "c9574c31986db590a322d8924925a8b9684fb6c5", "license": "MIT", "splits": ["train"], "purpose": ["format_reference"]},
+    {"kind": "dataset", "id": "openai/gsm8k", "revision": "740312add88f781978c0658806c59bc2815b9866", "license": "MIT", "splits": ["train", "test"], "purpose": ["math_train", "final_eval"]},
+    {"kind": "dataset", "id": "EleutherAI/hendrycks_math", "revision": "21a5633873b6a120296cce3e2df9d5550074f4a3", "license": "MIT-metadata", "splits": ["train"], "purpose": ["math_train"]},
+    {"kind": "dataset", "id": "HuggingFaceH4/MATH-500", "revision": "6e4ed1a2a79af7d8630a6b768ec859cb5af4d3be", "license": "undeclared-on-card", "splits": ["test"], "purpose": ["final_eval"]},
+    {"kind": "dataset", "id": "hotpotqa/hotpot_qa", "revision": "1908d6afbbead072334abe2965f91bd2709910ab", "license": "CC-BY-SA-4.0", "config": "distractor", "splits": ["train", "validation"], "purpose": ["retrieval_train", "final_eval"]},
+    {"kind": "dataset", "id": "framolfese/2WikiMultihopQA", "revision": "fe713bfbd1afbca1a65246741a75890405d56a3a", "license": "Apache-2.0-upstream", "splits": ["train", "validation", "test"], "purpose": ["retrieval_train", "final_eval"]}
   ]
 }
