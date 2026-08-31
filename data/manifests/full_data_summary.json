@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "status": "PASS_FOR_SFT",
+  "raw_prompts": 2500,
+  "raw_by_split": {
+    "dev": 200,
+    "internal_test": 400,
+    "rl": 800,
+    "sft": 1100
+  },
+  "source_split_overlap": {
+    "sft__rl": 0,
+    "sft__dev": 0,
+    "sft__internal_test": 0,
+    "rl__dev": 0,
+    "rl__internal_test": 0,
+    "dev__internal_test": 0
+  },
+  "final_eval_frozen_before_training": true,
+  "final_eval_total": 2219,
+  "final_eval_normalized_exact_overlap": 0,
+  "final_eval_jaccard_ge_0_90_pairs": [],
+  "unique_candidates": 3300,
+  "candidate_collisions": 0,
+  "verified_candidates": 2517,
+  "verified_sources": 984,
+  "candidate_quality_pass_rate": 0.7627272727272727,
+  "candidate_by_family": {
+    "code_reasoning": 990,
+    "direct_anchor": 660,
+    "retrieval_reasoning": 990,
+    "retrieve_then_compute": 660
+  },
+  "verified_by_family": {
+    "code_reasoning": 753,
+    "direct_anchor": 483,
+    "retrieval_reasoning": 825,
+    "retrieve_then_compute": 456
+  },
+  "verified_by_hint": {
+    "no_hint": 788,
+    "tool_hint": 883,
+    "minimal_call_hint": 846
+  },
+  "termination_reasons": {
+    "final": 3106,
+    "incomplete": 181,
+    "repeated_call": 8,
+    "tool_budget_exceeded": 5
+  },
+  "verified_trajectory_tokens": {
+    "mean": 607.4998013508144,
+    "median": 485,
+    "max": 2016
+  },
+  "sft_actual_total": 2076,
+  "sft_target_total": 4000,
+  "sft_by_family": {
+    "retrieval_reasoning": 696,
+    "code_reasoning": 696,
+    "direct_anchor": 464,
+    "retrieve_then_compute": 220
+  },
+  "sft_by_provenance": {
+    "pinned_official_reference_not_reexecuted": 1000,
+    "project_teacher_real_tools_verified": 984,
+    "project_teacher_real_tools_verified_alternative": 92
+  },
+  "project_sft_quality_errors": 0,
+  "duplicate_sft_episode_ids": 0,
+  "project_sources_outside_sft_split": 0,
+  "quality_shortfall_not_padded": true,
+  "manual_review": {
+    "schema_version": 1,
+    "status": "PASS",
+    "review_total": 100,
+    "review_by_family": {
+      "code_reasoning": 26,
+      "direct_anchor": 18,
+      "retrieval_reasoning": 26,
+      "retrieve_then_compute": 30
+    },
+    "review_by_origin": {
+      "gate3_pilot_reused": 50,
+      "gate4_supplement": 50
+    },
+    "retrieve_then_compute_minimum": 30,
+    "pilot_trajectories_unchanged": 50,
+    "manual_reviewed": 100,
+    "manual_agreed_with_program_verifier": 100,
+    "manual_program_agreement_rate": 1.0
+  },
+  "rl_candidate_pool": 800,
+  "rl_mining_status": "DEFERRED_UNTIL_FROZEN_SFT_CHECKPOINT",
+  "gate_sequence_adjustment": "Gate 4 freezes the isolated RL pool; pass@4 mining runs immediately after Gate 5 because the specification requires the frozen SFT checkpoint."
+}

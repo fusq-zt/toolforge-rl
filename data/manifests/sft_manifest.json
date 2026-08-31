@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "target_name": "ToolForge-SFT-4K",
+  "target_total": 4000,
+  "actual_total": 2076,
+  "target_by_family": {
+    "direct_anchor": 800,
+    "code_reasoning": 1200,
+    "retrieval_reasoning": 1200,
+    "retrieve_then_compute": 800
+  },
+  "actual_by_family": {
+    "code_reasoning": 696,
+    "direct_anchor": 464,
+    "retrieval_reasoning": 696,
+    "retrieve_then_compute": 220
+  },
+  "provenance": {
+    "pinned_official_reference_not_reexecuted": 1000,
+    "project_teacher_real_tools_verified": 984,
+    "project_teacher_real_tools_verified_alternative": 92
+  },
+  "official_cap": 1000,
+  "official_used": 1000,
+  "alternative_fraction": 0.125,
+  "candidate_files": [
+    "data/candidates/sft_shard0.jsonl",
+    "data/candidates/sft_shard1.jsonl"
+  ],
+  "unique_candidate_count": 3300,
+  "quality_shortfall_not_padded": true
+}

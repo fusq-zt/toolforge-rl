@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "total": 2619,
+  "by_suite": {
+    "internal_test": 400,
+    "public_heldout": 2219
+  },
+  "by_family": {
+    "code_reasoning": 1939,
+    "direct_anchor": 80,
+    "retrieval_reasoning": 520,
+    "retrieve_then_compute": 80
+  },
+  "sha256": "1ac3d2aaaad1f4a15727363cca766965ffca8b0a38468e87202505b103fc9995",
+  "purpose": "single model load followed by all frozen Internal and Public datasets"
+}

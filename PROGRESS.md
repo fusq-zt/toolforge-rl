@@ -59,3 +59,22 @@ length-bucketed and batched by round, with CPU-parallel tool execution.
 
 Decision: **PASS** at 2026-09-01T04:32:00+08:00. The 600 immutable candidates
 and 50 review decisions are carried forward into Gate 4 without regeneration.
+
+## Gate 4 — Full Data Build (SFT-ready phase)
+
+- [x] Completed 3,300/3,300 Teacher candidates for the 1,100 frozen SFT sources; the 600 Pilot rows were reused by candidate ID.
+- [x] 2,517 candidates passed correctness, protocol, execution, termination, and length filters (76.27%); 984/1,100 sources have a verified trajectory.
+- [x] Candidate IDs are unique with zero content collisions; raw shards remain append-only.
+- [x] Curated 2,076 SFT rows: 1,076 project-executed/verified trajectories plus the capped 1,000 provenance-labelled official references.
+- [x] The 4,000-row SFT target is unattainable under the user-revised 2,500-prompt budget, split isolation, 12.5% alternative cap, and 1,000 official cap; the shortfall is reported without padding or relaxed filters.
+- [x] Reused all 50 unchanged Pilot review rows and reviewed 50 new rows; manual/program agreement is 100/100 and retrieve→compute coverage is 30.
+- [x] Dev 200, Internal 400, RL candidate 800, and Public held-out 2,219 remain source-isolated; exact and Jaccard ≥0.90 held-out overlap remain zero.
+- [x] All 2,076 SFT examples load at max length 3,072 with zero truncation.
+
+Dependency adjustment: the specification asks Gate 4 to mine RL prompts with a
+"frozen SFT checkpoint", which only exists after Gate 5. Gate 4 therefore freezes
+the isolated 800-prompt RL candidate pool now; pass@4 mining runs immediately
+after Gate 5 and before any GRPO step. No prompt moves between splits.
+
+Decision: **PASS_FOR_SFT** at 2026-09-01T05:25:44+08:00. Quality thresholds are
+unchanged; the only shortfall is the mathematically constrained dataset quantity.

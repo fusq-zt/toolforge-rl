@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "review_total": 100,
+  "review_by_family": {
+    "code_reasoning": 26,
+    "direct_anchor": 18,
+    "retrieval_reasoning": 26,
+    "retrieve_then_compute": 30
+  },
+  "review_by_origin": {
+    "gate3_pilot_reused": 50,
+    "gate4_supplement": 50
+  },
+  "retrieve_then_compute_minimum": 30,
+  "pilot_trajectories_unchanged": 50,
+  "manual_reviewed": 100,
+  "manual_agreed_with_program_verifier": 100,
+  "manual_program_agreement_rate": 1.0
+}
