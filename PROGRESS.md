@@ -13,3 +13,9 @@
 - [x] Gate 0 final commit prepared (commit hash recorded after commit).
 
 Decision: **PASS** at 2026-09-01T03:12:19+08:00. Gate 1 may start; no training has started.
+
+## Approved scope revision
+
+- 2026-09-01: raw source-prompt target changed from ≥4,500 to **≥2,500** by the
+  user. Four task families, split isolation, verifiers, and quality gates are
+  unchanged; downstream SFT shortfalls must be reported rather than padded.

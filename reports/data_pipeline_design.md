@@ -40,10 +40,19 @@ trajectory quality.
 
 ## Source pool and candidates
 
-Target at least 4,500 unique source prompts, approximately 1,200 GSM8K, 1,000
-MATH, 1,100 HotpotQA, 1,100 2Wiki, and ≥400 retrieve→compute. The last category
-may overlap source corpora in origin but receives new unique episode/source IDs and
-is grouped with every parent context before splitting.
+User-approved scope revision (2026-09-01): target at least **2,500** unique source
+prompts, allocated by task family at roughly 500 direct anchors, 750 code reasoning,
+750 retrieval reasoning, and 500 retrieve→compute. GSM8K/MATH and HotpotQA/2Wiki
+are balanced within their respective families as availability/quality permits. A
+retrieve→compute item may derive facts from a train-side parent context but receives
+a new unique episode/source ID and remains grouped with every parent derivative.
+
+The downstream SFT-4K target and all quality gates remain aspirations, not reasons
+to duplicate prompts or relax filters. Under the 2,500-source budget, if the allowed
+10–15% alternative-trajectory policy and verified yield cannot support 4,000 SFT
+records (including ≤1,000 Tool-Star records and the desired project-generated
+majority), Gate 4 reports the achievable high-quality count and proceeds only under
+the existing honest-shortfall rule.
 
 Each source generates at most three real-loop candidates. Keep all raw outcomes;
 verified eligibility requires correct/parseable final, valid schema, successful
@@ -78,4 +87,3 @@ Exclude consistently impossible and persistently zero-variance items.
   agreement target ≥95%.
 
 No MinHash cluster service, audit blockchain, or LLM judge is added.
-

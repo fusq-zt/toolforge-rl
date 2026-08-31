@@ -39,7 +39,7 @@ explicit PASS/FAIL, and a Git commit. FAIL does not authorize skipping ahead.
 
 ## Gate 4 — Full Data Build
 
-- [ ] Build ≥4,500 grouped raw prompts and up to three candidates each.
+- [ ] Build ≥2,500 grouped raw prompts (user-revised scope) and up to three candidates each.
 - [ ] Produce verified SFT target (4K if quality allows; report actual shortfall).
 - [ ] Freeze Dev 200 and Internal 400 with source isolation.
 - [ ] Run SFT pass@4 over 1,500–2,500 RL candidates; mine RL-800.

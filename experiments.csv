@@ -1,2 +1,3 @@
 run_id,gate,kind,status,seed,model,dataset,started_at,finished_at,notes
 gate0_audit_20260901,0,audit,passed,,,none,2026-09-01T02:29:43+08:00,2026-09-01T03:12:19+08:00,"Fresh server; pip check, CUDA/import smoke, and 14-artifact validation passed; no training"
+scope_raw2500_20260901,4,scope_change,approved,,,raw_pool,2026-09-01T03:24:10+08:00,2026-09-01T03:24:10+08:00,"User changed raw source-prompt target from >=4500 to >=2500; quality gates unchanged"
