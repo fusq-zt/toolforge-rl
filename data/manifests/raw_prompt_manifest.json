@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "seed": 20260901,
+  "total": 2500,
+  "by_family": {
+    "code_reasoning": 750,
+    "direct_anchor": 500,
+    "retrieval_reasoning": 750,
+    "retrieve_then_compute": 500
+  },
+  "by_split": {
+    "dev": 200,
+    "internal_test": 400,
+    "rl": 800,
+    "sft": 1100
+  },
+  "by_split_family": {
+    "sft": {
+      "code_reasoning": 330,
+      "direct_anchor": 220,
+      "retrieval_reasoning": 330,
+      "retrieve_then_compute": 220
+    },
+    "rl": {
+      "code_reasoning": 240,
+      "direct_anchor": 160,
+      "retrieval_reasoning": 240,
+      "retrieve_then_compute": 160
+    },
+    "dev": {
+      "code_reasoning": 60,
+      "direct_anchor": 40,
+      "retrieval_reasoning": 60,
+      "retrieve_then_compute": 40
+    },
+    "internal_test": {
+      "code_reasoning": 120,
+      "direct_anchor": 80,
+      "retrieval_reasoning": 120,
+      "retrieve_then_compute": 80
+    }
+  },
+  "normalized_exact_duplicates_removed_before_generation": 25,
+  "high_similarity_source_ids_removed_before_generation": [
+    "math/train/2638"
+  ],
+  "source_id_overlap": 0
+}

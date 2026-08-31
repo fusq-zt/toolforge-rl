@@ -1,0 +1,102 @@
+[
+  {
+    "source_id": "math/train/7158",
+    "duplicate_of": "math/train/7048"
+  },
+  {
+    "source_id": "math/train/7378",
+    "duplicate_of": "math/train/6892"
+  },
+  {
+    "source_id": "math/train/3199",
+    "duplicate_of": "math/train/2617"
+  },
+  {
+    "source_id": "math/train/142",
+    "duplicate_of": "math/train/167"
+  },
+  {
+    "source_id": "math/train/3419",
+    "duplicate_of": "math/train/3876"
+  },
+  {
+    "source_id": "math/train/959",
+    "duplicate_of": "math/train/925"
+  },
+  {
+    "source_id": "math/train/4322",
+    "duplicate_of": "math/train/3493"
+  },
+  {
+    "source_id": "math/train/6494",
+    "duplicate_of": "math/train/6422"
+  },
+  {
+    "source_id": "hotpot/train/36988",
+    "duplicate_of": "hotpot/train/87423"
+  },
+  {
+    "source_id": "hotpot/train/77497",
+    "duplicate_of": "hotpot/train/27806"
+  },
+  {
+    "source_id": "hotpot/train/53022",
+    "duplicate_of": "hotpot/train/56170"
+  },
+  {
+    "source_id": "hotpot/train/3398",
+    "duplicate_of": "hotpot/train/22486"
+  },
+  {
+    "source_id": "2wiki/train/11012",
+    "duplicate_of": "2wiki/train/51808"
+  },
+  {
+    "source_id": "2wiki/train/18120",
+    "duplicate_of": "2wiki/train/69474"
+  },
+  {
+    "source_id": "hotpot/train/3115",
+    "duplicate_of": "hotpot/train/46135"
+  },
+  {
+    "source_id": "hotpot/train/51753",
+    "duplicate_of": "hotpot/train/43499"
+  },
+  {
+    "source_id": "hotpot/train/80719",
+    "duplicate_of": "hotpot/train/27018"
+  },
+  {
+    "source_id": "hotpot/train/82393",
+    "duplicate_of": "hotpot/train/88577"
+  },
+  {
+    "source_id": "hotpot/train/16012",
+    "duplicate_of": "hotpot/train/62223"
+  },
+  {
+    "source_id": "hotpot/train/27525",
+    "duplicate_of": "hotpot/train/70996"
+  },
+  {
+    "source_id": "hotpot/train/81490",
+    "duplicate_of": "hotpot/train/77110"
+  },
+  {
+    "source_id": "hotpot/train/78758",
+    "duplicate_of": "hotpot/train/4318"
+  },
+  {
+    "source_id": "hotpot/train/87670",
+    "duplicate_of": "hotpot/train/34078"
+  },
+  {
+    "source_id": "2wiki/train/63525",
+    "duplicate_of": "2wiki/train/156805"
+  },
+  {
+    "source_id": "2wiki/train/165142",
+    "duplicate_of": "2wiki/train/133101"
+  }
+]

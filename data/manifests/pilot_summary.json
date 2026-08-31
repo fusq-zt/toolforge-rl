@@ -1,0 +1,48 @@
+{
+  "status": "PASS",
+  "raw_prompts": 200,
+  "candidates": 600,
+  "expected_candidates": 600,
+  "quality_pass": 468,
+  "sources_with_verified_candidate": 183,
+  "quality_pass_rate": 0.78,
+  "by_family_candidates": {
+    "code_reasoning": 180,
+    "direct_anchor": 120,
+    "retrieval_reasoning": 180,
+    "retrieve_then_compute": 120
+  },
+  "by_family_quality_pass": {
+    "code_reasoning": 141,
+    "direct_anchor": 91,
+    "retrieval_reasoning": 150,
+    "retrieve_then_compute": 86
+  },
+  "by_hint_quality_pass": {
+    "no_hint": 136,
+    "tool_hint": 165,
+    "minimal_call_hint": 167
+  },
+  "termination_reasons": {
+    "final": 577,
+    "incomplete": 22,
+    "repeated_call": 1
+  },
+  "review_total": 50,
+  "review_by_family": {
+    "retrieve_then_compute": 30,
+    "code_reasoning": 7,
+    "retrieval_reasoning": 7,
+    "direct_anchor": 6
+  },
+  "review_targets": {
+    "retrieve_then_compute": 30,
+    "code_reasoning": 7,
+    "retrieval_reasoning": 7,
+    "direct_anchor": 6
+  },
+  "manual_reviewed": 50,
+  "manual_agreed_with_program_verifier": 50,
+  "manual_program_agreement_rate": 1.0,
+  "pilot_reused_by_gate4": true
+}

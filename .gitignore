@@ -1,6 +1,7 @@
 .venv/
 __pycache__/
 *.py[cod]
+*.egg-info/
 .pytest_cache/
 .ruff_cache/
 .coverage
@@ -11,6 +12,7 @@ htmlcov/
 # Large/rebuildable research artifacts
 .cache/
 data/raw/
+data/raw_prompts/
 data/candidates/
 data/verified/
 data/sft/
@@ -26,4 +28,3 @@ third_party/Tool-Star/
 !data/manifests/**
 !data/examples/
 !data/examples/**
-

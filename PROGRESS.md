@@ -50,9 +50,12 @@ Decision: **PASS** at 2026-09-01T04:15:41+08:00.
 - [x] Final public evaluation IDs frozen before generation: GSM8K 1,319, MATH500 500, Hotpot 200, 2Wiki 200.
 - [x] One Jaccard-0.92 near duplicate removed and replaced; exact and ≥0.90 overlap are now zero.
 - [x] Pilot 200 frozen with 40/60/60/40 family allocation.
-- [ ] Generate 600 real-loop candidates in two persistent, resumable GPU shards.
-- [ ] Review 50 verified trajectories; reuse unchanged rows in Gate 4 review.
+- [x] Generated 600 real-loop candidates in two persistent, resumable GPU shards; 468 passed all quality filters (78%).
+- [x] Reviewed 50 verified trajectories (30 retrieve→compute); manual/program agreement 50/50.
 
 Execution optimization: the Pilot is the first immutable part of the full build;
 Gate 4 resumes its shard files instead of regenerating it. Teacher generation is
 length-bucketed and batched by round, with CPU-parallel tool execution.
+
+Decision: **PASS** at 2026-09-01T04:32:00+08:00. The 600 immutable candidates
+and 50 review decisions are carried forward into Gate 4 without regeneration.
