@@ -1,0 +1,4 @@
+# Compatibility with the NVIDIA 25.03 system-site environment.
+# nvidia-dali-cuda120 1.47.0 requires packaging<=24.2.
+packaging==24.2
+

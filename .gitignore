@@ -1,0 +1,29 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.env
+*.log
+
+# Large/rebuildable research artifacts
+.cache/
+data/raw/
+data/candidates/
+data/verified/
+data/sft/
+data/rl/
+data/eval/
+runs/
+checkpoints/
+models/
+third_party/Tool-Star/
+
+# Keep manifests and small examples under version control
+!data/manifests/
+!data/manifests/**
+!data/examples/
+!data/examples/**
+

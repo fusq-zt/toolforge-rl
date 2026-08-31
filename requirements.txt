@@ -1,0 +1,22 @@
+# Direct dependencies only. System torch/CUDA is intentionally not listed:
+# the server image supplies a working torch 2.7.0a0+cu128 stack.
+transformers>=4.51,<4.53
+datasets>=3.5,<3.7
+peft>=0.15,<0.16
+trl>=0.16,<0.18
+accelerate>=1.6,<1.8
+huggingface_hub>=0.30,<0.34
+safetensors>=0.5,<0.6
+sentencepiece>=0.2,<0.3
+rank_bm25>=0.2.2,<0.3
+sympy>=1.13,<1.14
+math-verify>=0.8,<0.9
+numpy>=1.26,<2.0
+pandas>=2.2,<2.3
+scipy>=1.15,<1.16
+matplotlib>=3.10,<3.11
+psutil>=7,<8
+pytest>=8,<9
+rich>=13,<15
+pyyaml>=6,<7
+
