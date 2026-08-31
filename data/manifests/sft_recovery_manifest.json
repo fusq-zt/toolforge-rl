@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "purpose": "one_bounded_sft_protocol_recovery_after_gate_failure",
+  "source": "data/sft/toolforge_sft.jsonl",
+  "source_split": "sft_train_only",
+  "selection": "shortest_protocol_valid_per_family_then_seeded_shuffle",
+  "requested_quotas": {
+    "code_reasoning": 512,
+    "direct_anchor": 64,
+    "retrieval_reasoning": 64,
+    "retrieve_then_compute": 64
+  },
+  "actual_by_family": {
+    "direct_anchor": 64,
+    "retrieval_reasoning": 64,
+    "code_reasoning": 512,
+    "retrieve_then_compute": 64
+  },
+  "total": 704,
+  "seed": 42,
+  "evaluation_examples_used": 0
+}

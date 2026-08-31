@@ -1,0 +1,13 @@
+model: models/Qwen2.5-3B-Instruct
+method: lora
+lora_r: 32
+lora_alpha: 64
+lora_dropout: 0.05
+precision: bf16
+max_length: 3072
+max_samples: 256
+max_steps: 25
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 8
+learning_rate: 0.0001
+seed: 42
