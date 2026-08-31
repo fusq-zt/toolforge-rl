@@ -1,3 +1,7 @@
 run_id,gate,kind,status,seed,model,dataset,started_at,finished_at,notes
 gate0_audit_20260901,0,audit,passed,,,none,2026-09-01T02:29:43+08:00,2026-09-01T03:12:19+08:00,"Fresh server; pip check, CUDA/import smoke, and 14-artifact validation passed; no training"
 scope_raw2500_20260901,4,scope_change,approved,,,raw_pool,2026-09-01T03:24:10+08:00,2026-09-01T03:24:10+08:00,"User changed raw source-prompt target from >=4500 to >=2500; quality gates unchanged"
+gate1_qwen_protocol_20260901,1,protocol_sanity,completed,20260901,Qwen2.5-3B-Instruct,Tool-Star-SFT-54K-100,2026-09-01T03:34:00+08:00,2026-09-01T04:03:00+08:00,"Base comparison: protocol 77%; final parse 81%; tool events 120/135 successful"
+gate1_toolstar_protocol_20260901,1,protocol_sanity,passed,20260901,Tool-Star-Qwen-3B,Tool-Star-SFT-54K-100,2026-09-01T03:34:00+08:00,2026-09-01T04:15:41+08:00,"Merged failure-only recovery: protocol 99%; final parse 100%; tool execution 96.15%; nontermination 1%"
+gate2_tests_20260901,2,tests,passed,42,none,unit_and_integration,2026-09-01T03:40:00+08:00,2026-09-01T04:15:41+08:00,"170/170 passed; Python 36; search 23; loop 23; reward 42; protocol/verifier 46; tokenizer prefix checks pass"
+raw2500_freeze_20260901,3,data_freeze,completed,20260901,none,public_train_plus_synthetic_rtc,2026-09-01T03:45:00+08:00,2026-09-01T04:08:00+08:00,"2500 prompts; 25 exact pre-generation duplicates removed; one Jaccard-0.92 train/eval near duplicate replaced; final overlap zero"

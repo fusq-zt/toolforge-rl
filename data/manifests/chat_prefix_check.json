@@ -1,0 +1,46 @@
+{
+  "checks": [
+    {
+      "model": "models/Qwen2.5-3B-Instruct",
+      "passed": true,
+      "checks": [
+        {
+          "before_tokens": 265,
+          "after_tokens": 288,
+          "prefix_equal": true
+        },
+        {
+          "before_tokens": 288,
+          "after_tokens": 314,
+          "prefix_equal": true
+        },
+        {
+          "before_tokens": 314,
+          "after_tokens": 323,
+          "prefix_equal": true
+        }
+      ]
+    },
+    {
+      "model": "models/Tool-Star-Qwen-3B",
+      "passed": true,
+      "checks": [
+        {
+          "before_tokens": 265,
+          "after_tokens": 288,
+          "prefix_equal": true
+        },
+        {
+          "before_tokens": 288,
+          "after_tokens": 314,
+          "prefix_equal": true
+        },
+        {
+          "before_tokens": 314,
+          "after_tokens": 323,
+          "prefix_equal": true
+        }
+      ]
+    }
+  ]
+}
