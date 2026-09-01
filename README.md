@@ -80,7 +80,13 @@ python -m pip install -r requirements.txt
 make test
 ```
 
-Download the pinned resources listed in `data/manifests/source_manifest.json`, then follow `PROGRESS.md`, `configs/`, and the numbered `data_pipeline/` entry points. `scripts/run_gate6_branch_remaining.sh` and `scripts/run_gate7_model.sh` preserve resume-safe batching and targeted long-output recovery. Model/data caches remain outside Git.
+Download the pinned resources listed in `data/manifests/source_manifest.json`, then follow `PROGRESS.md`, `configs/`, and the stage entry points under `scripts/`. `scripts/run_remaining_pipeline.sh` is the resume-safe one-command Gate 6→7 orchestrator; `scripts/run_gate7_model.sh` preserves targeted long-output recovery. Model/data caches remain outside Git.
+
+Once the frozen predictions and training logs are present, regenerate every final summary, bootstrap interval, figure, report, demo trace, and the full test result with one command:
+
+```bash
+make reproduce-final
+```
 
 Run the final adapter demo:
 

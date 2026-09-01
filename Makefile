@@ -1,4 +1,4 @@
-.PHONY: bootstrap audit-check env-smoke
+.PHONY: bootstrap audit-check env-smoke test reproduce-final
 
 bootstrap:
 	.venv/bin/python -m pip install -c constraints.txt -r requirements.txt
@@ -8,3 +8,9 @@ audit-check:
 
 env-smoke:
 	.venv/bin/python scripts/environment_smoke.py
+
+test:
+	.venv/bin/python -m pytest -q
+
+reproduce-final:
+	bash scripts/finalize_gate7.sh

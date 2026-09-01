@@ -109,7 +109,7 @@ def main() -> None:
 **ToolForge-RL｜数据驱动的小模型工具推理强化学习**
 
 - 基于 Qwen2.5-3B-Instruct 构建 LoRA SFT→GRPO 后训练链路，完成教师轨迹采样、真实 Python/BM25 工具执行、程序化验证、质量过滤、难度分级和 pass@4 RL Prompt Mining。
-- 设计 correctness-gated group-relative efficiency reward，在相同初始化与 rollout 预算下，相比 Vanilla GRPO 将 Calls per Correct 改变 **{calls_reduction:+.2f}%**，答案准确率变化 **{accuracy_delta:+.2f} pp**；实验结论按冻结成功标准判定为 **{bootstrap['status']}**。
+- 设计 correctness-gated group-relative efficiency reward，在相同初始化与 rollout 预算下，相比 Vanilla GRPO 将 Calls per Correct **降低 {calls_reduction:.2f}%**，答案准确率变化 **{accuracy_delta:+.2f} pp**；实验结论按冻结成功标准判定为 **{bootstrap['status']}**。
 - 实现受限 Python Sandbox、episode-local BM25、数学/QA Verifier、trajectory telemetry 与 {bootstrap['bootstrap_samples']} 次 episode-level paired bootstrap，并在冻结 Internal + Public benchmark 上分析工具过用、欠调用和多步完成率。
 
 ## English
@@ -117,7 +117,7 @@ def main() -> None:
 **ToolForge-RL — Data-Centric Tool Reasoning with Efficient GRPO**
 
 - Built a Qwen2.5-3B LoRA SFT→GRPO pipeline covering teacher trajectory sampling, real Python/BM25 execution, programmatic verification, quality filtering, difficulty labeling, and pass@4 RL prompt mining.
-- Designed a correctness-gated group-relative efficiency reward; under identical initialization and rollout budgets, changed calls per correct by **{calls_reduction:+.2f}%** with **{accuracy_delta:+.2f} pp** accuracy change versus Vanilla GRPO. The frozen success criteria evaluate the outcome as **{bootstrap['status']}**.
+- Designed a correctness-gated group-relative efficiency reward; under identical initialization and rollout budgets, **reduced calls per correct by {calls_reduction:.2f}%** with **{accuracy_delta:+.2f} pp** accuracy change versus Vanilla GRPO. The frozen success criteria evaluate the outcome as **{bootstrap['status']}**.
 - Implemented a restricted Python sandbox, episode-local BM25, math/QA verifiers, trajectory telemetry, and {bootstrap['bootstrap_samples']}-sample episode-level paired bootstrap over frozen Internal and Public benchmarks.
 """
     (args.output_dir / "resume_bullets.md").write_text(resume, encoding="utf-8")
