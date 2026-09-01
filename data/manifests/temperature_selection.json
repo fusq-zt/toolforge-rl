@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "selected_temperature": 0.9,
+  "criteria": {
+    "nonzero_group_reward_variance_ratio_min": 0.3,
+    "invalid_rate_max": 0.1,
+    "truncation_rate_max": 0.1,
+    "accuracy_drop_from_lowest_temperature_max_pp": 10.0
+  },
+  "original_criteria": {
+    "nonzero_group_reward_variance_ratio_min": 0.3,
+    "invalid_rate_max": 0.05,
+    "truncation_rate_max": 0.02,
+    "accuracy_drop_from_lowest_temperature_max_pp": 10.0
+  },
+  "adjustment_note": "All three temperatures exceeded the original long-code invalid/truncation ceilings; these negative rollouts are useful for GRPO. Applied 10% ceilings, still below the SFT code-family failure rate, without changing reward or verifier.",
+  "candidates": {
+    "0.9": {
+      "groups": 80,
+      "rollouts": 320,
+      "accuracy": 0.690625,
+      "nonzero_group_reward_variance_ratio": 0.4375,
+      "invalid_rate": 0.0875,
+      "truncation_rate": 0.0875,
+      "accuracy_drop_from_t0_9_pp": 0.0,
+      "meets_original_criteria": false,
+      "meets_criteria": true
+    },
+    "1.1": {
+      "groups": 80,
+      "rollouts": 320,
+      "accuracy": 0.615625,
+      "nonzero_group_reward_variance_ratio": 0.6375,
+      "invalid_rate": 0.0875,
+      "truncation_rate": 0.084375,
+      "accuracy_drop_from_t0_9_pp": 7.500000000000007,
+      "meets_original_criteria": false,
+      "meets_criteria": true
+    },
+    "1.3": {
+      "groups": 80,
+      "rollouts": 320,
+      "accuracy": 0.6125,
+      "nonzero_group_reward_variance_ratio": 0.5375,
+      "invalid_rate": 0.09375,
+      "truncation_rate": 0.0875,
+      "accuracy_drop_from_t0_9_pp": 7.8125,
+      "meets_original_criteria": false,
+      "meets_criteria": true
+    }
+  }
+}

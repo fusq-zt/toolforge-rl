@@ -1,0 +1,15 @@
+initialization: frozen_sft_adapter
+num_generations: 4
+temperature: selected_by_probe
+top_p: 0.95
+max_prompt_length: 1024
+max_completion_length: 1536
+max_tool_calls: 3
+learning_rate: 0.000005
+beta: 0.01
+clip_epsilon: 0.2
+bf16: true
+gradient_checkpointing: true
+gradient_accumulation_groups: 4
+use_vllm: false
+seed: 42

@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "candidate_prompts": 800,
+  "complete_pass_at_4_groups": 800,
+  "rollouts": 3200,
+  "final_selected": 432,
+  "target_total": 800,
+  "target_by_family": {
+    "direct_anchor": 160,
+    "code_reasoning": 240,
+    "retrieval_reasoning": 240,
+    "retrieve_then_compute": 160
+  },
+  "selected_by_family": {
+    "code_reasoning": 131,
+    "direct_anchor": 56,
+    "retrieval_reasoning": 144,
+    "retrieve_then_compute": 101
+  },
+  "selection_types": {
+    "mixed_correctness": 312,
+    "all_correct_call_variance": 118,
+    "reward_variance": 2
+  },
+  "excluded": {
+    "all_wrong": 114,
+    "constant_group": 254
+  },
+  "mean_pass_at_4": 2.71625,
+  "nonzero_reward_variance_ratio": 0.40625,
+  "nonzero_tool_call_variance_ratio": 0.37375,
+  "invalid_rate": 0.05125,
+  "truncation_rate": 0.050625,
+  "quality_shortfall_not_padded": true
+}

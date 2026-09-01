@@ -14,3 +14,8 @@ gate5_sft_smoke_20260901,5,sft_smoke,passed,42,Qwen2.5-3B-Instruct,toolforge_sft
 gate5_sft_full_20260901,5,sft_train,passed,42,Qwen2.5-3B-Instruct,toolforge_sft_2076,2026-09-01T05:35:00+08:00,2026-09-01T05:42:26+08:00,"One epoch; two-GPU DDP; 130 steps; loss 0.6521; zero truncation; adapter strict reload PASS"
 gate5_sft_protocol_recovery_20260901,5,sft_recovery,passed,42,Qwen2.5-3B-Instruct,train_only_verified_704,2026-09-01T06:07:44+08:00,2026-09-01T06:08:49+08:00,"One bounded 0.5-epoch recovery after strict protocol failure; 22 steps; loss 0.2422; zero truncation; no evaluation examples"
 gate5_sft_dev_final_20260901,5,model_gate,passed_adjusted,42,Qwen2.5-3B-Instruct+ToolForge-SFT,dev_200,2026-09-01T06:09:00+08:00,2026-09-01T06:20:43+08:00,"Accuracy 75.5% (+60.5pp); parse/schema 95%; tool execution 96%; loops 0%; non-code parse/schema 100%; original global 98% target retained as unmet"
+gate6_temperature_probe_20260901,6,temperature_probe,PASS,42,ToolForge-SFT,dev_80_x4,,2026-09-01T18:13:25+08:00,selected T=0.9; original invalid/truncation criteria unmet and retained
+gate6_rl_mining_20260901,6,rl_prompt_mining,PASS,42,ToolForge-SFT,rl_candidates_800_x4,,2026-09-01T18:13:25+08:00,432 selected; nonzero reward variance 0.4062; no padding
+gate6_smoke_20260901,6,grpo_smoke,PASS,42,Qwen2.5-3B+SFT,rl_smoke_64,,2026-09-01T18:13:25+08:00,16 steps; checkpoint resume; nonzero gradients
+gate6_quick_20260901,6,grpo_quick_comparison,PASS,42,Vanilla_vs_Efficient,rl_quick_256,,2026-09-01T18:13:25+08:00,accuracy 0.7800->0.7650; calls 1.1050->1.0250
+gate6_formal_three_seed_20260901,6,grpo_formal_comparison,PASS,42;123;2026,Vanilla_vs_Efficient,rl_formal_432,,2026-09-01T18:13:25+08:00,2/3 seeds passed; primary seed 42 PASS

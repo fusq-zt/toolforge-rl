@@ -1,10 +1,16 @@
 # RL Prompt Mining Report
 
-Status: **FROZEN CANDIDATE POOL; PASS@4 PENDING FROZEN SFT**
+Status: **PASS**
 
 - Isolated candidate prompts: 800
-- Family targets already frozen: direct 160, code 240, retrieval 240, retrieve-then-compute 160.
-- No gold trajectory is stored with the future policy input.
-- pass@4 correctness, reward variance, tool-call variance, invalid and truncation metrics will be populated immediately after Gate 5.
+- Complete pass@4 groups: 800
+- Selected prompts: 432/800
+- Mean correct rollouts per group: 2.716/4
+- Non-zero reward variance groups: 40.62%
+- Non-zero tool-call variance groups: 37.38%
+- Invalid / truncation: 5.12% / 5.06%
+- Family counts: {'code_reasoning': 131, 'direct_anchor': 56, 'retrieval_reasoning': 144, 'retrieve_then_compute': 101}
+- Selection types: {'mixed_correctness': 312, 'all_correct_call_variance': 118, 'reward_variance': 2}
+- Excluded: {'all_wrong': 114, 'constant_group': 254}
 
-This sequencing resolves an internal dependency in the experiment specification: Gate 4 asks for an RL-mined set while also requiring that mining use the Gate 5 frozen SFT checkpoint. No prompt is regenerated or moved between splits.
+All-wrong and constant-policy groups are excluded. Shortfalls are reported and never padded. The output contains prompts, local environment, reference/verifier and mining metadata only; no gold trajectory.

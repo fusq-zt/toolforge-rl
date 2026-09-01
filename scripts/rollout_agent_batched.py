@@ -46,6 +46,7 @@ class State:
     termination_reason: str = "turn_limit"
     active: bool = True
     started: float = field(default_factory=time.monotonic)
+    finished: float | None = None
 
 
 def read_jsonl(path: Path) -> list[dict]:
@@ -116,15 +117,19 @@ def run_cohort(model, tokenizer, states, batch_size, max_tokens, do_sample, temp
             ):
                 if action.kind == ActionKind.FINAL:
                     state.termination_reason, state.active = "final", False
+                    state.finished = time.monotonic()
                 elif action.kind in {ActionKind.SEARCH, ActionKind.PYTHON}:
                     if len(state.events) >= 3:
                         state.termination_reason, state.active = "tool_budget_exceeded", False
+                        state.finished = time.monotonic()
                     elif any(e["tool"] == action.kind.value and e["arguments"] == action.content for e in state.events):
                         state.termination_reason, state.active = "repeated_call", False
+                        state.finished = time.monotonic()
                     else:
                         tool_jobs.append((state, action))
                 else:
                     state.termination_reason, state.active = action.kind.value, False
+                    state.finished = time.monotonic()
         with ThreadPoolExecutor(max_workers=workers) as pool:
             futures = [pool.submit(execute_action, state, action) for state, action in tool_jobs]
             for (state, action), future in zip(tool_jobs, futures):
@@ -134,6 +139,10 @@ def run_cohort(model, tokenizer, states, batch_size, max_tokens, do_sample, temp
                     "tool": action.kind.value, "arguments": action.content, "response": response,
                     "success": success, "error_type": error_type, "latency_seconds": latency,
                 })
+    for state in states:
+        if state.active:
+            state.active = False
+            state.finished = time.monotonic()
 
 
 def finalize(state: State, tokenizer, run_label: str) -> dict:
@@ -162,7 +171,7 @@ def finalize(state: State, tokenizer, run_label: str) -> dict:
         "final_parsed": answer is not None,
         "generated_tokens": state.generated_tokens,
         "trajectory_tokens": len(tokenizer.encode(state.transcript)),
-        "latency_seconds": time.monotonic() - state.started,
+        "latency_seconds": (state.finished or time.monotonic()) - state.started,
         "termination_reason": state.termination_reason,
         "transcript": state.transcript,
     }
@@ -178,7 +187,7 @@ def main() -> None:
     parser.add_argument("--rollouts-per-prompt", type=int, default=1)
     parser.add_argument("--batch-size", type=int, default=8)
     parser.add_argument("--cohort-size", type=int, default=64)
-    parser.add_argument("--max-step-tokens", type=int, default=512)
+    parser.add_argument("--max-step-tokens", type=int, default=1024)
     parser.add_argument("--temperature", type=float, default=0.9)
     parser.add_argument("--top-p", type=float, default=0.95)
     parser.add_argument("--greedy", action="store_true")
@@ -215,6 +224,11 @@ def main() -> None:
     with args.output.open("a", encoding="utf-8") as handle:
         for offset in range(0, len(pending), args.cohort_size):
             cohort = pending[offset: offset + args.cohort_size]
+            cohort_started = time.monotonic()
+            for state in cohort:
+                # Exclude time spent waiting behind earlier cohorts. The measured
+                # latency is the episode's real batched generation/tool wall time.
+                state.started = cohort_started
             run_cohort(
                 model, tokenizer, cohort, args.batch_size, args.max_step_tokens,
                 not args.greedy, args.temperature, args.top_p, args.workers,

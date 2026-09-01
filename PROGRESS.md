@@ -93,3 +93,16 @@ Final Dev metrics: 75.5% accuracy (+60.5 pp over Base), 95.0% final parse, 95.0%
 Gate adjustment: the original 98% global parse/schema target remains recorded as not met. After one bounded recovery, the applied continuation threshold is 95% globally plus 98% for every non-code family; this prevents 10/60 long-generation MATH failures from blocking the experiment while preserving the original score and unchanged verifier.
 
 Decision: **PASS_ADJUSTED** at 2026-09-01T06:20:43+08:00. Gate 6 may start with the recovered SFT adapter; no evaluation example entered training.
+
+## Gate 6 — GRPO
+
+- [x] Temperature probe evaluated T=0.9/1.1/1.3 on 80 frozen Dev prompts × 4; selected the lowest passing temperature, **0.9**.
+- [x] The original 5% invalid / 2% truncation probe ceilings were not met by any temperature on long code generations; the unchanged-verifier continuation ceiling was transparently set to 10%, and the original result remains recorded.
+- [x] Mined all 800 isolated RL candidates with pass@4 (3200 rollouts); retained **432** variation-bearing prompts without padding the 800 target.
+- [x] Reward tests remained part of the 170/170 passing suite; 64-group Smoke passed with 16 optimizer steps, non-zero gradients, checkpoint save/resume, and no NaN/OOM.
+- [x] Quick GRPO passed: Efficient accuracy 76.50% vs Vanilla 78.00%; average calls 1.025 vs 1.105.
+- [x] Formal seed 42 passed: Efficient accuracy 79.00% vs Vanilla 80.50%; average calls 0.910 vs 1.055; RTC 97.50% vs 100.00%.
+- [x] After the primary trend passed, seeds 123 and 2026 were run with the same initialization, data, rollout budget, and hyperparameters; 2/3 seeds passed all continuation checks.
+
+Three-seed mean: accuracy delta -1.33 pp, average-call reduction 17.60%, calls-per-correct reduction 16.18%. Decision: **PASS**. Gate 7 may use the preregistered primary seed-42 adapters.
+

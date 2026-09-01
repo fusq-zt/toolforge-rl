@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "primary_seed": 42,
+  "seed_count": 3,
+  "passing_seeds": 2,
+  "seeds": [
+    {
+      "seed": 42,
+      "vanilla_accuracy": 0.805,
+      "efficient_accuracy": 0.79,
+      "accuracy_delta_pp": -1.5000000000000013,
+      "vanilla_average_calls": 1.055,
+      "efficient_average_calls": 0.91,
+      "average_calls_reduction": 0.13744075829383878,
+      "calls_per_correct_reduction": 0.1210630511728358,
+      "invalid_delta_pp": -1.5000000000000002,
+      "rtc_accuracy_delta_pp": -2.500000000000002,
+      "efficient_relative_reward_group_ratio": 0.6782407407407407,
+      "continuation_checks": {
+        "accuracy_within_3pp": true,
+        "average_calls_not_higher": true,
+        "invalid_rate_le_5pct": true,
+        "rtc_not_collapsed": true,
+        "relative_reward_groups_ge_25pct": true
+      },
+      "status": "PASS"
+    },
+    {
+      "seed": 123,
+      "vanilla_accuracy": 0.75,
+      "efficient_accuracy": 0.73,
+      "accuracy_delta_pp": -2.0000000000000018,
+      "vanilla_average_calls": 1.14,
+      "efficient_average_calls": 0.86,
+      "average_calls_reduction": 0.24561403508771926,
+      "calls_per_correct_reduction": 0.22494592645998557,
+      "invalid_delta_pp": 0.5000000000000001,
+      "rtc_accuracy_delta_pp": -15.000000000000002,
+      "efficient_relative_reward_group_ratio": 0.6597222222222222,
+      "continuation_checks": {
+        "accuracy_within_3pp": true,
+        "average_calls_not_higher": true,
+        "invalid_rate_le_5pct": true,
+        "rtc_not_collapsed": false,
+        "relative_reward_groups_ge_25pct": true
+      },
+      "status": "MIXED"
+    },
+    {
+      "seed": 2026,
+      "vanilla_accuracy": 0.77,
+      "efficient_accuracy": 0.765,
+      "accuracy_delta_pp": -0.5000000000000004,
+      "vanilla_average_calls": 1.07,
+      "efficient_average_calls": 0.915,
+      "average_calls_reduction": 0.14485981308411217,
+      "calls_per_correct_reduction": 0.13927066153564227,
+      "invalid_delta_pp": -1.5,
+      "rtc_accuracy_delta_pp": 12.5,
+      "efficient_relative_reward_group_ratio": 0.6504629629629629,
+      "continuation_checks": {
+        "accuracy_within_3pp": true,
+        "average_calls_not_higher": true,
+        "invalid_rate_le_5pct": true,
+        "rtc_not_collapsed": true,
+        "relative_reward_groups_ge_25pct": true
+      },
+      "status": "PASS"
+    }
+  ],
+  "aggregate": {
+    "accuracy_delta_pp": {
+      "mean": -1.3333333333333346,
+      "min": -2.0000000000000018,
+      "max": -0.5000000000000004
+    },
+    "average_calls_reduction": {
+      "mean": 0.17597153548855674,
+      "min": 0.13744075829383878,
+      "max": 0.24561403508771926
+    },
+    "calls_per_correct_reduction": {
+      "mean": 0.16175987972282121,
+      "min": 0.1210630511728358,
+      "max": 0.22494592645998557
+    },
+    "invalid_delta_pp": {
+      "mean": -0.8333333333333334,
+      "min": -1.5000000000000002,
+      "max": 0.5000000000000001
+    },
+    "rtc_accuracy_delta_pp": {
+      "mean": -1.6666666666666679,
+      "min": -15.000000000000002,
+      "max": 12.5
+    },
+    "efficient_relative_reward_group_ratio": {
+      "mean": 0.6628086419753086,
+      "min": 0.6504629629629629,
+      "max": 0.6782407407407407
+    }
+  },
+  "interpretation": "Seed 42 is the preregistered primary run; 123 and 2026 are trend replications added only after seed 42 passed."
+}

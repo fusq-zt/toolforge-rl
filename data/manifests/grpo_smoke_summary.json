@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "checks": {
+    "64_prompt_groups": true,
+    "256_rollouts": true,
+    "optimizer_steps_10_to_20": true,
+    "reward_nonconstant": true,
+    "advantage_nonzero": true,
+    "gradient_nonzero": true,
+    "checkpoint_saved": true,
+    "resume_completed": true,
+    "loop_is_hard_bounded": true,
+    "no_nan": true
+  },
+  "summary": {
+    "status": "PASS",
+    "branch": "efficient",
+    "processed_groups": 64,
+    "rollouts": 256,
+    "optimizer_steps": 16,
+    "relative_reward_groups": 47,
+    "relative_reward_group_ratio": 0.734375,
+    "gradient_nonzero": true,
+    "mean_reward": 0.7164062163792551,
+    "mean_tool_calls": 1.23828125
+  },
+  "termination_reasons": {
+    "final": 244,
+    "repeated_call": 7,
+    "incomplete": 4,
+    "tool_budget_exceeded": 1
+  }
+}

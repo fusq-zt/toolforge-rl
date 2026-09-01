@@ -1,0 +1,3 @@
+branch: efficient
+reward: correctness_gated_group_relative_tool_calls
+efficiency_lambda: 0.15
