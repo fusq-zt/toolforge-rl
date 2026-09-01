@@ -24,13 +24,26 @@ def main() -> None:
         default="schema_valid",
         help="Boolean rollout field; rows for which it is false are selected.",
     )
+    parser.add_argument(
+        "--termination-reason",
+        help="Select only this termination reason (for example: incomplete).",
+    )
     args = parser.parse_args()
 
     source = read_jsonl(args.source)
     rollouts = read_jsonl(args.rollouts)
-    failed_keys = {
-        row[args.key] for row in rollouts if not bool(row.get(args.failure_field))
-    }
+    if args.termination_reason:
+        failed_keys = {
+            row[args.key]
+            for row in rollouts
+            if row.get("termination_reason") == args.termination_reason
+        }
+        selector = {"termination_reason": args.termination_reason}
+    else:
+        failed_keys = {
+            row[args.key] for row in rollouts if not bool(row.get(args.failure_field))
+        }
+        selector = {"failure_field": args.failure_field}
     selected = [row for row in source if row.get(args.key) in failed_keys]
 
     selected_keys = {row.get(args.key) for row in selected}
@@ -48,7 +61,7 @@ def main() -> None:
     print(
         json.dumps(
             {
-                "failure_field": args.failure_field,
+                **selector,
                 "failed_keys": len(failed_keys),
                 "selected_rows": len(selected),
                 "output": str(args.output),

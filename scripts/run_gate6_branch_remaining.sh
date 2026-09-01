@@ -65,7 +65,7 @@ evaluate_seed() {
   local eval_dir="runs/grpo_formal_${branch}_dev_seed${seed}"
   local predictions="$eval_dir/rollouts.jsonl"
   mkdir -p "$eval_dir"
-  if [[ "$(wc -l < "$predictions" 2>/dev/null || echo 0)" -ne 200 ]]; then
+  if [[ ! -f "$predictions" ]] || [[ "$(wc -l < "$predictions")" -ne 200 ]]; then
     # rollout_agent_batched uses deterministic rollout IDs and resumes safely.
     # Reuse any already-complete cohorts rather than regenerating them.
     .venv/bin/python scripts/rollout_agent_batched.py \

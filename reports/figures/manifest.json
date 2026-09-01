@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "figures": [
+    "01_accuracy_vs_average_calls.png",
+    "02_accuracy_vs_calls_per_correct.png",
+    "03_task_family_accuracy.png",
+    "04_direct_unnecessary_call_rate.png",
+    "05_retrieve_compute_completion.png",
+    "06_reward_kl_entropy.png",
+    "07_group_reward_variance_ratio.png",
+    "08_tool_call_distribution.png",
+    "09_failure_type_distribution.png"
+  ],
+  "note": "token_entropy_proxy is negative mean policy-token log probability, logged without an extra full-vocabulary entropy pass."
+}

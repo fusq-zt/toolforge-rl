@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "episodes": 2619,
+  "bootstrap_samples": 5000,
+  "point_estimates": {
+    "accuracy_delta_pp": -0.0381825124093127,
+    "average_calls_reduction": 0.2188122758070945,
+    "calls_per_correct_reduction": 0.21839183031506373,
+    "invalid_rate_delta_pp": 0.1527300496372661,
+    "direct_unnecessary_call_reduction": 0.2222222222222223,
+    "rtc_accuracy_delta_pp": 0.0
+  },
+  "confidence_intervals_95": {
+    "accuracy_delta_pp": [
+      -1.2218403970981284,
+      1.1836578846888157
+    ],
+    "average_calls_reduction": [
+      0.19906223102944412,
+      0.2393404699130744
+    ],
+    "calls_per_correct_reduction": [
+      0.194080390087685,
+      0.24303368556439017
+    ],
+    "invalid_rate_delta_pp": [
+      -0.07636502481863307,
+      0.3818251240931653
+    ],
+    "direct_unnecessary_call_reduction": [
+      0.12987012987012986,
+      0.32000000000000006
+    ],
+    "rtc_accuracy_delta_pp": [
+      0.0,
+      0.0
+    ]
+  },
+  "success_checks": {
+    "accuracy_drop_le_2pp": true,
+    "calls_or_calls_per_correct_reduction_ge_10pct": true,
+    "direct_unnecessary_call_reduction_ge_15pct": true,
+    "rtc_accuracy_drop_le_3pp": true,
+    "invalid_rate_increase_le_2pp": true
+  }
+}

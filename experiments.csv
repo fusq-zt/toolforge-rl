@@ -19,3 +19,5 @@ gate6_rl_mining_20260901,6,rl_prompt_mining,PASS,42,ToolForge-SFT,rl_candidates_
 gate6_smoke_20260901,6,grpo_smoke,PASS,42,Qwen2.5-3B+SFT,rl_smoke_64,,2026-09-01T18:13:25+08:00,16 steps; checkpoint resume; nonzero gradients
 gate6_quick_20260901,6,grpo_quick_comparison,PASS,42,Vanilla_vs_Efficient,rl_quick_256,,2026-09-01T18:13:25+08:00,accuracy 0.7800->0.7650; calls 1.1050->1.0250
 gate6_formal_three_seed_20260901,6,grpo_formal_comparison,PASS,42;123;2026,Vanilla_vs_Efficient,rl_formal_432,,2026-09-01T18:13:25+08:00,2/3 seeds passed; primary seed 42 PASS
+gate7_full_matrix_20260901,7,final_evaluation,completed,42,six_model_matrix,internal400_public2219,,2026-09-02T01:28:29+08:00,Vanilla acc/calls 0.7098/0.9580; Efficient 0.7094/0.7484
+gate7_paired_bootstrap_20260901,7,paired_bootstrap,PASS,20260901,Vanilla_vs_Efficient,frozen_2619,,2026-09-02T01:28:29+08:00,accuracy delta -0.0382pp; average-call reduction 0.2188; calls/correct reduction 0.2184

@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "policy": "Evaluate all 2619 rows at 1024 tokens, retry only termination_reason=incomplete at 2048, preserve initial and recovery files.",
+  "runs": [
+    {
+      "label": "Base",
+      "initial_rows": 2619,
+      "recovery_rows": 745,
+      "final_rows": 2619,
+      "remaining_incomplete": 582
+    },
+    {
+      "label": "Base efficient prompt",
+      "initial_rows": 2619,
+      "recovery_rows": 527,
+      "final_rows": 2619,
+      "remaining_incomplete": 363
+    },
+    {
+      "label": "SFT",
+      "initial_rows": 2619,
+      "recovery_rows": 78,
+      "final_rows": 2619,
+      "remaining_incomplete": 21
+    },
+    {
+      "label": "Vanilla GRPO",
+      "initial_rows": 2619,
+      "recovery_rows": 40,
+      "final_rows": 2619,
+      "remaining_incomplete": 5
+    },
+    {
+      "label": "Efficient GRPO",
+      "initial_rows": 2619,
+      "recovery_rows": 52,
+      "final_rows": 2619,
+      "remaining_incomplete": 9
+    },
+    {
+      "label": "Tool-Star reference",
+      "initial_rows": 2619,
+      "recovery_rows": 70,
+      "final_rows": 2619,
+      "remaining_incomplete": 10
+    }
+  ]
+}

@@ -106,3 +106,15 @@ Decision: **PASS_ADJUSTED** at 2026-09-01T06:20:43+08:00. Gate 6 may start with 
 
 Three-seed mean: accuracy delta -1.33 pp, average-call reduction 17.60%, calls-per-correct reduction 16.18%. Decision: **PASS**. Gate 7 may use the preregistered primary seed-42 adapters.
 
+## Gate 7 — Final Evaluation
+
+- [x] Evaluated the complete frozen 2,619-row Internal + Public suite for all six preregistered model configurations; no final ID, verifier, or reward semantic changed.
+- [x] Each model used a 1,024-token main pass; only genuinely incomplete rows were retried at 2,048 tokens (1512 model-episodes total). Raw and recovered predictions are both retained.
+- [x] Vanilla accuracy 70.98%, average calls 0.958, calls/correct 1.350; Efficient accuracy 70.94%, average calls 0.748, calls/correct 1.055.
+- [x] 5,000-sample episode-level paired bootstrap completed; nine preregistered figures, per-family/dataset/difficulty summaries, failure analysis, Demo trace, and bilingual resume bullets generated.
+- [x] Final 170/170 test suite passed after all pipeline and reporting changes.
+
+Frozen comparison: accuracy delta **-0.04 pp**, average-call reduction **21.88%**, calls-per-correct reduction **21.84%**, direct unnecessary-call reduction **22.22%**, RTC delta **+0.00 pp**, invalid delta **+0.15 pp**.
+
+Success checks: accuracy_drop_le_2pp=PASS, calls_or_calls_per_correct_reduction_ge_10pct=PASS, direct_unnecessary_call_reduction_ge_15pct=PASS, rtc_accuracy_drop_le_3pp=PASS, invalid_rate_increase_le_2pp=PASS. Decision: **PASS**. The result is preserved whether positive or negative.
+

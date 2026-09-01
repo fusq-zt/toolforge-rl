@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "total": 2619,
+  "by_difficulty": {
+    "hard": 1846,
+    "medium": 470,
+    "easy": 303
+  },
+  "definition": {
+    "easy": "Base greedy correct with zero calls",
+    "medium": "Base greedy correct with one or more calls",
+    "hard": "Base greedy wrong, or retrieve_then_compute"
+  },
+  "used_for_tuning": false,
+  "annotated_prediction_files": [
+    "runs/final_eval_base_efficient_prompt/predictions_annotated.jsonl",
+    "runs/final_eval_sft/predictions_annotated.jsonl",
+    "runs/final_eval_vanilla/predictions_annotated.jsonl",
+    "runs/final_eval_efficient/predictions_annotated.jsonl",
+    "runs/final_eval_toolstar/predictions_annotated.jsonl"
+  ]
+}
