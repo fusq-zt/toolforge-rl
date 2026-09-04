@@ -1,6 +1,6 @@
 # Direct dependencies only. System torch/CUDA is intentionally not listed:
 # the server image supplies a working torch 2.7.0a0+cu128 stack.
-transformers>=4.51,<4.53
+transformers>=5.10.1,<5.11
 datasets>=3.5,<3.7
 peft>=0.15,<0.16
 trl>=0.16,<0.18
