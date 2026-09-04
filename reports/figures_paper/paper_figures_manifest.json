@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "source": "Frozen ToolForge-RL Gate 7 manifests",
+  "manifest_dir": "data/manifests",
+  "figure_count": 16,
+  "files": [
+    "10_model_matrix_overview.png",
+    "10_model_matrix_overview.pdf",
+    "11_efficiency_pareto_frontier.png",
+    "11_efficiency_pareto_frontier.pdf",
+    "12_task_family_accuracy_heatmap.png",
+    "12_task_family_accuracy_heatmap.pdf",
+    "13_dataset_accuracy_heatmap.png",
+    "13_dataset_accuracy_heatmap.pdf",
+    "14_protocol_reliability_heatmap.png",
+    "14_protocol_reliability_heatmap.pdf",
+    "15_internal_vs_public_accuracy.png",
+    "15_internal_vs_public_accuracy.pdf",
+    "16_paired_bootstrap_forest.png",
+    "16_paired_bootstrap_forest.pdf",
+    "17_three_seed_robustness.png",
+    "17_three_seed_robustness.pdf",
+    "18_data_construction_flow.png",
+    "18_data_construction_flow.pdf",
+    "19_rl_prompt_mining_composition.png",
+    "19_rl_prompt_mining_composition.pdf",
+    "20_targeted_recovery_outcomes.png",
+    "20_targeted_recovery_outcomes.pdf",
+    "21_sft_training_and_dev_gain.png",
+    "21_sft_training_and_dev_gain.pdf",
+    "22_difficulty_accuracy_heatmap.png",
+    "22_difficulty_accuracy_heatmap.pdf",
+    "23_experiment_storyboard.png",
+    "23_experiment_storyboard.pdf",
+    "24_temperature_probe.png",
+    "24_temperature_probe.pdf",
+    "00_paper_figure_gallery.png",
+    "00_paper_figure_gallery.pdf"
+  ],
+  "formats": [
+    "PNG 260 dpi",
+    "vector PDF"
+  ],
+  "notes": [
+    "No model inference or prediction regeneration was performed.",
+    "All values are read from frozen JSON manifests.",
+    "Model colors are held constant across figures."
+  ]
+}

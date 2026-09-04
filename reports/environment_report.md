@@ -1,7 +1,7 @@
 # Environment Report
 
 Audit time: 2026-09-01 02:34–02:41 CST  
-Project path: `/root/shared-nvme/toolforge-rl`  
+Project path: `<project-volume>/toolforge-rl`
 Method: read-only probes before any package, model, or dataset installation.
 
 ## Effective allocation
@@ -23,7 +23,7 @@ Method: read-only probes before any package, model, or dataset installation.
 | CUDA available | true, two devices | PASS |
 | BF16 | supported | PASS |
 | Root overlay | 30GB available | Keep for image/runtime only |
-| User storage | 150GB available at `/root/shared-nvme` after expansion | PASS: above the 100GB recommendation |
+| User storage | 150GB available on the project volume after expansion | PASS: above the 100GB recommendation |
 
 At audit time both GPUs were idle (1 MiB reported per device, no processes).
 

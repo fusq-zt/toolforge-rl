@@ -43,6 +43,8 @@ ToolForge-RL is an end-to-end Qwen2.5-3B post-training experiment built from a c
 
 Final status: **Gate 0–7 complete**. The preregistered success criteria **{outcome}** their joint threshold (`{bootstrap['status']}`). All reported numbers below are read from frozen artifacts; negative checks are retained rather than repaired post hoc.
 
+![ToolForge-RL publication figure gallery](reports/figures_paper/00_paper_figure_gallery.png)
+
 ## What is different from Tool-Star?
 
 Tool-Star supplies the protocol reference, a public teacher/reference checkpoint, and up to 1,000 screened SFT examples. This project is not a full Tool-Star reproduction: it fixes a smaller two-tool scope (`python_exec`, episode-local BM25 `local_search`) and independently implements real execution, observation reinjection, programmatic verification, quality filtering, difficulty labeling, pass@4 prompt mining, LoRA SFT, and paired Vanilla/Efficient GRPO. `dongguanting/Tool-Star-Qwen-3B` is reported only as a public reference model, never as a project-trained result.
@@ -65,7 +67,7 @@ public train-only prompts
 - Teacher candidates: **{data['unique_candidates']:,}**; verified: **{data['verified_candidates']:,}** ({pct(data['candidate_quality_pass_rate'])}).
 - SFT examples: **{data['sft_actual_total']:,}** high-quality rows, including **1,076** project-generated, real-tool-verified trajectories and **1,000** pinned public reference rows. The original 4,000 target was not padded with low-quality data.
 - RL mining: **{rl['candidate_prompts']:,}** prompts × 4 rollouts; **{rl['final_selected']:,}** prompts retained with policy/reward variation. The original 800 target was not padded (`non-zero reward variance={pct(rl['nonzero_reward_variance_ratio'])}`).
-- Manual review: **{data['manual_review']['manual_reviewed']}** rows, including 30 retrieve→compute; program/human agreement **{pct(data['manual_review']['manual_program_agreement_rate'])}**.
+- Structured agent-assisted semantic review: **{data['manual_review']['manual_reviewed']}** rows, including 30 retrieve→compute; program/review agreement **{pct(data['manual_review']['manual_program_agreement_rate'])}**.
 - Frozen final evaluation: **{evaluation['total']:,}** episodes = {evaluation['by_suite']['internal_test']} Internal + {evaluation['by_suite']['public_heldout']:,} public held-out; SHA-256 `{evaluation['sha256']}`.
 
 SFT contains successful message/tool trajectories. GRPO data deliberately contains only prompts, tools/environment, references, verifiers, and metadata—never a gold trajectory for the policy.
@@ -104,16 +106,21 @@ Paired episode-level bootstrap ({bootstrap['bootstrap_samples']:,} resamples):
 - Direct unnecessary-call reduction: **{points['direct_unnecessary_call_reduction']:.2%}**.
 - Retrieve→compute accuracy delta: **{points['rtc_accuracy_delta_pp']:+.2f} pp**; invalid-rate delta: **{points['invalid_rate_delta_pp']:+.2f} pp**.
 
+![Accuracy and tool-use efficiency Pareto frontier](reports/figures_paper/11_efficiency_pareto_frontier.png)
+
 The exact threshold outcome and every individual check are preserved in `reports/paired_bootstrap.md`. Per-model, per-family, per-dataset, per-difficulty, and Internal/Public results are in `reports/final_results.md`.
 
 ## Reproduce
 
-Use a recent CUDA-capable PyTorch environment; do not overwrite a working system CUDA/PyTorch installation. The clean-server versions used here are frozen in `requirements.lock.txt`.
+Use a recent CUDA-capable PyTorch environment; do not overwrite a working system CUDA/PyTorch installation. Portable direct-dependency pins are in `requirements.lock.txt`; the original CUDA/PyTorch environment is documented in `reports/environment_report.md`.
+
+See [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md) for lightweight unit tests, figure-only reproduction, and the full training/evaluation path, including which large or license-restricted artifacts are intentionally excluded from Git.
 
 ```bash
 python -m venv .venv --system-site-packages
 source .venv/bin/activate
-python -m pip install -r requirements.txt
+python -m pip install -c constraints.txt -r requirements.txt
+python -m pip install -e . --no-deps
 make test
 ```
 
@@ -137,6 +144,8 @@ CUDA_VISIBLE_DEVICES=0 .venv/bin/python demo/toolforge_demo.py \
 ## Figures and reports
 
 The nine preregistered plots are under `reports/figures/`, including accuracy/cost trade-offs, family accuracy, direct overuse, retrieve→compute completion, reward/KL/entropy proxy, reward variance, call distribution, and failure types. Key reports include:
+
+An additional publication/PPT figure pack is available under `reports/figures_paper/`: 15 numbered analytical figures plus a gallery, each exported as a 260-dpi PNG and vector PDF. Regenerate the pack from frozen manifests only with `make reproduce-paper`.
 
 - `reports/data_card.md`, `reports/data_quality_report.md`, `reports/data_lineage_report.md`
 - `reports/final_results.md`, `reports/paired_bootstrap.md`, `reports/failure_analysis.md`

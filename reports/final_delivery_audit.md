@@ -24,7 +24,7 @@ Audit scope: the 24 mandatory deliverables in the frozen project prompt, after G
 | 18 | Paired bootstrap | `reports/paired_bootstrap.md`, 5,000 paired resamples | PASS |
 | 19 | Figures | nine separate PNG files in `reports/figures/` | PASS |
 | 20 | Failure analysis | `reports/failure_analysis.md` | PASS |
-| 21 | Demo | `demo/toolforge_demo.py`, `runs/final_demo/trace.json` | PASS |
+| 21 | Demo | `demo/toolforge_demo.py`, published `demo/example_trace.json` copy of the generated `runs/final_demo/trace.json` | PASS |
 | 22 | README | `README.md` | PASS |
 | 23 | Chinese and English resume text | `reports/resume_bullets.md` | PASS |
 | 24 | One-command reproduction entry | `scripts/run_remaining_pipeline.sh`; `make reproduce-final` regenerates final statistics/reports/demo/tests from frozen outputs | PASS |

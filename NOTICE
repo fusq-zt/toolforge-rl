@@ -4,8 +4,8 @@ It studies ideas described by Tool-Star (RUC-NLPIR, MIT): tool-integrated
 reasoning protocols, executable tool trajectories, and public reference
 checkpoints/data. Tool-Star code or results must never be presented as results
 of this project. The upstream source is pinned in
-`data/manifests/source_manifest.json` and will live under
-`third_party/Tool-Star/` only after Gate 0 passes.
+`data/manifests/source_manifest.json`. It is downloaded externally at that
+revision for local experiments and is not vendored in this repository.
 
 Qwen2.5-3B-Instruct is used under the license supplied with its pinned model
 revision. Public datasets retain their upstream licenses and attribution.

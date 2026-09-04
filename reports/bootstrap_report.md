@@ -9,8 +9,8 @@ artifacts.
 
 ## Decisions made
 
-- Repository: `/root/shared-nvme/toolforge-rl`, inside the user home storage and
-  on the expanded 150GB writable volume.
+- Repository: `<project-volume>/toolforge-rl`, on the expanded 150GB writable
+  user volume.
 - Branch: `main`.
 - Python: `.venv --system-site-packages` to retain verified NVIDIA PyTorch.
 - Git identity: repository-local neutral identity; no personal credential added.
@@ -30,7 +30,7 @@ artifacts.
 | Isolated environment | `.venv` created with system site packages | PASS |
 | Direct dependencies | resolved compatible set; `pip check` and import smoke passed | PASS |
 | Human-readable requirements | `requirements.txt` | PASS |
-| Resolved lock | `requirements.lock.txt`, 323 environment entries | PASS |
+| Resolved lock | original Gate 0 server freeze contained 323 entries; this public export provides portable direct pins in `requirements.lock.txt` | PASS |
 | Source asset plan | 10 assets pinned; license/usage decisions recorded | PASS |
 | No premature download/training | repository and reports only | PASS |
 

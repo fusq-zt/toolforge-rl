@@ -7,7 +7,28 @@ __pycache__/
 .coverage
 htmlcov/
 .env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
 *.log
+*.bundle
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+dist/
+build/
+.mypy_cache/
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+wandb/
+mlruns/
+lightning_logs/
 
 # Large/rebuildable research artifacts
 .cache/
@@ -21,6 +42,10 @@ data/eval/
 runs/
 checkpoints/
 models/
+*.ckpt
+*.pt
+*.pth
+*.safetensors
 third_party/Tool-Star/
 
 # Keep manifests and small examples under version control

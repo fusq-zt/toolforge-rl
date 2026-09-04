@@ -4,7 +4,7 @@
 
 - cgroup compute: 22 CPU cores, 120 GiB RAM, no cgroup swap.
 - accelerators: 2 × RTX 4090, 24,564 MiB each, no NVLink.
-- project volume: 150GB free at `/root/shared-nvme` after expansion.
+- project volume: 150GB free after expansion.
 - root overlay: 30GB free but excluded from the project budget.
 
 The earlier 50GB project-volume observation is superseded by the verified 150GB
@@ -24,7 +24,7 @@ expanded capacity.
 | safety reserve | 35GB | downloads stop before free space drops below 25GB |
 | **Total planned** | **136GB** | leaves about 14GB beyond reservations |
 
-Use `HF_HOME=/root/shared-nvme/toolforge-rl/.cache/huggingface` and keep the hub
+Use `HF_HOME=<project-root>/.cache/huggingface` and keep the hub
 snapshot cache on this volume. Model and dataset working paths should refer to the
 same snapshots rather than copy them.
 

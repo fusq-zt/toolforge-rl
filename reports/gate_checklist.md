@@ -1,4 +1,9 @@
-# Gate 0–7 Execution Checklist
+# Preregistered Gate 0–7 Execution Checklist (Frozen at Gate 0)
+
+This file preserves the plan exactly as it stood after Gate 0. The unchecked
+boxes below are frozen planned work, not the final project status. Actual Gate
+1–7 outcomes and evidence are recorded in `PROGRESS.md`, `experiments.csv`, and
+the corresponding reports.
 
 Every gate ends with reports, `PROGRESS.md`/`experiments.csv` updates, tests, an
 explicit PASS/FAIL, and a Git commit. FAIL does not authorize skipping ahead.

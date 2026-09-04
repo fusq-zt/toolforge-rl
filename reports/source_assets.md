@@ -5,7 +5,7 @@ before any download. Transport mirrors do not change provenance.
 
 | Kind | Canonical ID | Revision | License at audit | First use | Redistribution decision |
 |---|---|---|---|---|---|
-| code | `RUC-NLPIR/Tool-Star` | `df08f67a89b27feda425306cfe892d65f6569f9a` | MIT | Gate 1 protocol reference | keep upstream code under `third_party`, retain license/NOTICE |
+| code | `RUC-NLPIR/Tool-Star` | `df08f67a89b27feda425306cfe892d65f6569f9a` | MIT | Gate 1 protocol reference | use an ignored local `third_party` checkout; do not vendor it; retain license/NOTICE |
 | model | `Qwen/Qwen2.5-3B-Instruct` | `aa8e72537993ba99e69dfaafa59ed015b17504d1` | Qwen Research (`other` metadata) | base/SFT/eval | never commit weights; publish download instructions |
 | model | `dongguanting/Tool-Star-Qwen-3B` | `2350a1d6ec6230d48e41f752babab730bad8aa92` | MIT | Gate 1 sanity and teacher | reference only; never claim as project training result |
 | dataset | `dongguanting/Tool-Star-SFT-54K` | `f85b4fe0809a30a3b360b6f61689e462f79e2ec1` | MIT | Gate 1 sanity; ≤1K filtered SFT | do not publish full copy; publish selected IDs/build script |
