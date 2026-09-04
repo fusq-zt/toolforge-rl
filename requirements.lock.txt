@@ -19,6 +19,6 @@ pandas==2.2.3
 scipy==1.15.2
 matplotlib==3.10.1
 psutil==7.0.0
-pytest==8.1.1
+pytest==9.0.3
 rich==13.9.4
 PyYAML==6.0.2
