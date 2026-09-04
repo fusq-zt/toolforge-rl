@@ -3,7 +3,7 @@
 # so it is intentionally not presented as an installable lock.
 # PyTorch/CUDA remain system-provided; see reports/environment_report.md.
 packaging==24.2
-transformers==4.52.4
+transformers==5.10.1
 datasets==3.6.0
 peft==0.15.2
 trl==0.17.0
