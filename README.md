@@ -6,7 +6,9 @@
 
 ## 主要结果
 
-![标准 GRPO 与高效 GRPO 的准确率和工具调用次数对比](reports/figures_readme/main_results_zh.png)
+![各模型的工具调用效率与准确率对比](reports/figures_readme/main_results_zh.png)
+
+图中越靠左上越好。横轴为总调用次数除以答对题数；高效 GRPO 在这一指标上降低 **21.84%**。
 
 两组模型从同一个监督微调（SFT）模型出发，使用相同训练设置，仅调整奖励中的效率项。评测覆盖数学、检索和“检索后计算”等任务。
 
