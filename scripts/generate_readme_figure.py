@@ -18,12 +18,12 @@ from matplotlib.patches import FancyArrowPatch
 ROOT = Path(__file__).resolve().parents[1]
 INK = "#253142"
 MODEL_SPECS = [
-    ("base", "基础模型", "#7A8793", "o"),
-    ("base_efficient_prompt", "基础模型＋效率提示", "#A7B0B8", "s"),
+    ("base", "Base model", "#7A8793", "o"),
+    ("base_efficient_prompt", "Base + prompt", "#A7B0B8", "s"),
     ("sft", "SFT", "#4C78A8", "D"),
-    ("vanilla", "标准 GRPO", "#F28E2B", "^"),
-    ("efficient", "高效 GRPO", "#2A9D8F", "*"),
-    ("toolstar", "Tool-Star（参考）", "#8064A2", "P"),
+    ("vanilla", "Vanilla GRPO", "#F28E2B", "^"),
+    ("efficient", "Efficient GRPO", "#2A9D8F", "*"),
+    ("toolstar", "Tool-Star ref.", "#8064A2", "P"),
 ]
 
 
