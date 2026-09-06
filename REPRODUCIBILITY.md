@@ -1,15 +1,21 @@
-# Reproducibility guide
+# 复现说明
 
-This repository is the lightweight, GitHub-ready record of the ToolForge-RL
-experiment. It includes the implementation, frozen configurations and manifests,
-small review samples, final reports, and all publication figures. It does not
-redistribute model weights, adapters, public datasets, full predictions, caches,
-or training logs.
+仓库包含源码、配置、结果摘要和图表。原实验环境为 Ubuntu 24.04、Python 3.12 和两张 24 GB RTX 4090。
 
-## 1. Lightweight CPU verification
+## 生成首页结果图
 
-The protocol parser, deterministic tools, answer verifiers, reward functions,
-and Agent Loop have unit tests that do not load a language model.
+直接读取仓库中的结果摘要，无需模型或显卡：
+
+```bash
+python -m pip install matplotlib==3.10.1
+python scripts/generate_readme_figure.py
+```
+
+需安装微软雅黑、Noto Sans CJK SC 或其他脚本支持的中文字体。图片和矢量 PDF 保存在 `reports/figures_readme/`。
+
+## 运行基础测试
+
+在 Linux 环境中执行：
 
 ```bash
 python -m venv .venv
@@ -19,43 +25,11 @@ python -m pip install -e . --no-deps
 python -m pytest -q
 ```
 
-The same check runs in `.github/workflows/ci.yml` on every GitHub push and pull
-request. The Python execution tool uses Linux resource limits, so its complete
-test suite is intended for Linux rather than native Windows.
+测试覆盖协议解析、工具执行、答案验证和奖励计算，无需加载语言模型。部分工具测试依赖 Linux 资源限制；GitHub 的自动检查使用 Linux。
 
-## 2. Recreate the publication figures
+## 训练与评测
 
-Install the plotting dependencies, then regenerate the figure pack solely from
-the included frozen JSON manifests:
-
-```bash
-python -m pip install numpy==1.26.4 matplotlib==3.10.1
-python scripts/generate_paper_figures.py \
-  --manifest-dir data/manifests \
-  --output-dir reports/figures_paper
-```
-
-The numbered PNG and vector PDF outputs are described in
-`reports/figures_paper/README.md` and `reports/figures_paper/FIGURE_GUIDE_zh.md`.
-
-## 3. Recreate final reports from materialized predictions
-
-If the omitted prediction JSONL files and run logs have been materialized under
-the paths recorded by the scripts, run:
-
-```bash
-make reproduce-final
-```
-
-This recomputes summaries, paired bootstrap intervals, the preregistered figure
-set, final reports, the demo trace, and unit tests. It does not rerun training or
-model inference.
-
-## 4. Full training and evaluation
-
-The original environment was Ubuntu 24.04 with Python 3.12 and two 24 GB RTX
-4090 GPUs. Preserve a working system PyTorch/CUDA installation and install the
-project dependencies into a virtual environment:
+先准备可用的 PyTorch 和 CUDA 环境，再安装项目依赖：
 
 ```bash
 python -m venv .venv --system-site-packages
@@ -64,19 +38,8 @@ python -m pip install -c constraints.txt -r requirements.lock.txt
 python -m pip install -e . --no-deps
 ```
 
-Download the exact model and dataset revisions in
-`data/manifests/source_manifest.json`. Then follow `PROGRESS.md` and the staged
-entry points in `scripts/`. Large artifacts are deliberately ignored by Git;
-their expected locations are documented in `.gitignore` and the reports.
+按[资源清单](data/manifests/source_manifest.json)下载指定版本的模型与数据，再结合[阶段记录](PROGRESS.md)、[配置](configs/)和[脚本](scripts/)运行实验。原始软硬件信息见[环境报告](reports/environment_report.md)。
 
-## Included versus excluded
+模型权重、适配器、完整数据、预测文件和训练日志未包含在仓库中。准备好相应预测文件和日志后，可运行 `make reproduce-final` 重新计算最终报告；该命令不执行训练或模型推理。
 
-| Included in Git | Intentionally excluded |
-|---|---|
-| Source, tests, configs, and scripts | Model checkpoints and adapters |
-| Frozen manifests and small review samples | Raw/public datasets and generated candidate corpora |
-| Aggregate results and statistical reports | Full prediction JSONL and training logs |
-| PNG and vector-PDF figures | Virtual environments and package/model caches |
-
-This separation keeps the repository small and license-conscious while retaining
-the evidence needed to inspect the claimed results and regenerate every chart.
+其余已有图表可用 `make reproduce-paper` 重新生成，需要安装 `numpy==1.26.4` 和 `matplotlib==3.10.1`。
